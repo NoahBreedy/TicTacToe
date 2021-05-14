@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="shortcut icon" type="image" href="/client/favicon.ico"/>
+    <link rel="stylesheet" href="/client/style.css">
+    <title>Tic-Tac-Toe</title>
+  </head>
+  <body>
+    <!--  Title   -->
+    <h1 id="titleMessage">WELCOME TO TIC-TAC-TOE</h1>
+    <!-- Rooms -->
+    <div id="roomContainer"></div>
+    <!-- Canvas -->
+    <div id="canvasContainer">
+      <p id="scores">Xs:0 Os:0</p>
+    </div>
+    <button id="dcBtn" class="diconnectButton" onclick = "leaveRoom()">Leave Room</button>
+    <div id="createRoom">
+      <button class="create" onclick = "createNewRoom()">Create New <br>Room:</button>
+    </div>
+    
+<div id ="themeContainer" class="themeContainer">
+  <label for="cars">Choose a Theme: </label>
+<select onchange="changeTheme(this)" name="theme" id="themes">
+  <option value="0">Default</option>
+  <option value="1">Inverted</option>
+  <option value="2">High Contrast</option>
+  <option value="3">Solarized Dark</option>
+  <option value="4">Committed To Purple</option>
+  <option value="5">Buisness</option>
+</select>
+</div>
+
+    <script src="/client/sketch.js"></script>
+     <script language="JavaScript">
+  window.onbeforeunload = leaveRoom(true);
+  </script>
+  </body>
+</html>

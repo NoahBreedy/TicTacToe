@@ -1,0 +1,87 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+  align-items: center;
+  border: 1px dotted rgb(0, 0, 0);
+}
+
+button{
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 16px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+button:hover{
+  background-color: black;
+  color: white;
+}
+
+button.create{
+  background-color:  rgb(72, 128, 24);
+}
+
+button.diconnectButton{
+  background-color:  rgb(199, 72, 50);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+button.diconnectButton:hover{
+  background-color: rgb(235, 95, 70);
+  color: white;
+}
+
+button.create:hover{
+  background-color: rgb(89, 150, 36);
+  color: white;
+}
+
+#roomContainer{
+  padding: 15px;
+  display: inline-block;
+}
+
+#canvasContainer{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+p{
+  word-spacing: 30px;
+}
+
+#roomContainer > button:not(:last-child) {
+    margin-right: 25px;
+    margin-bottom: 25px;
+}
+
+#titleMessage{
+  text-align: center;
+}
+
+#createRoom{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+
+
+.themeContainer{
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  padding: 25px;
+}
