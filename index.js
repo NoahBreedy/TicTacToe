@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
 const serv = require('http').Server(app);
-
-
 const Max_Rooms=10,Max_players=2,dict="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let Rooms = [];
 
@@ -103,7 +101,7 @@ io.sockets.on('connection', function(socket) {
     }).on('connectToRoom',(_data)=>{
       let flag = true;
       for(var room of Rooms){
-        if(room.id == _data && room.player_num<2){
+        if(room.id == _data && room.player_num<Max_players){
              flag = false;
              socket.leave("main");
              socket.join(_data);

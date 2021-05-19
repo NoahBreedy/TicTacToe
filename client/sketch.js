@@ -63,6 +63,9 @@ socket.on('returnRooms',(_data)=>{
 
 
 socket.emit('getRooms', "give me rooms");
+//prevents cheese I really should add a little loading bar but whatever
+document.getElementById("themeContainer").style.display = "none";
+document.getElementById("createRoom").style.display = "none";
 
 //Graphics
 let cnv;
@@ -106,6 +109,7 @@ function changeTheme(e){
     case 3: colors = ["#657b83","#859900","#dc322f","#2aa198","#eee8d5"];break;
     case 4: colors = ["#282244","#6153A6","#C1BBDD","#8c39d4","#504489"];break;
     case 5: colors = ["#5C89BA","#A8A9AD","#565D6C","#D8D8D8","#838996"];break;
+    case 6: colors = ["#9acd32","#49796b","#009000"," #aaf0d1","#006400"];break;
   } 
 }
 
@@ -214,6 +218,7 @@ function renderRooms(rooms){
   document.getElementById("scores").style.display = "none";
   document.getElementById("dcBtn").style.display = "none";  
   document.getElementById("themeContainer").style.display = "none";  
+  changeTitleMessage("WELCOME TO TIC-TAC-TOE");
 }
 
 function clearRooms(){
@@ -260,7 +265,6 @@ function createNewRoom(){
 
 function changeTitleMessage(msg){
   document.getElementById('titleMessage').innerHTML = msg;
-  console.log()
 }
 
 function waitingAnim(){
