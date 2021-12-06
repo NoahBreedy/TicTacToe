@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const serv = require('http').Server(app);
-const Max_Rooms=10,Max_players=2,dict="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const Max_Rooms=10,Max_players=2,ID_LENGTH=5,dict="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let Rooms = [];
 
 Rooms.push(new RoomData('defaultRoom'));
@@ -22,7 +22,7 @@ function getRandomInt(min, max) {
 
 
 function RoomData(name,password=null){
-    this.id = createId(5);
+    this.id = createId(ID_LENGTH);
     this.player_num = 0;
     this.roomName = name;
     this.password = password;
@@ -197,9 +197,23 @@ io.sockets.on('connection', function(socket) {
            break;
          }
        }  
+    }).on('disconnecting',()=>{
+        let id = fs_GetRoomId(socket.rooms);
+        for(var i =0;i<Rooms.length;i++){
+         if(Rooms[i].id == id){
+           Rooms.splice(i,1);
+           io.sockets.in(id).emit('roomClosed');
+           break;
+         }
+       }  
     });
 
 });
+
+
+function fs_GetRoomId(rooms){
+  return [...rooms.values()].filter(room => room.length == ID_LENGTH)[0];
+}
 
 function getSquares(board){
   let arr = [];
