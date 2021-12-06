@@ -110,8 +110,10 @@ function changeTheme(e){
     case 4: colors = ["#282244","#6153A6","#C1BBDD","#8c39d4","#504489"];break;
     case 5: colors = ["#5C89BA","#A8A9AD","#565D6C","#D8D8D8","#838996"];break;
     case 6: colors = ["#9acd32","#49796b","#009000"," #aaf0d1","#006400"];break;
+    case 7: colors = ["#563838","#282726","#6A8A82"," #A37C27","#A7414A"];break;
   } 
 }
+
 
 
 function mousePressed(){
